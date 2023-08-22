@@ -4,6 +4,7 @@ import { IMessageHandler } from "./MessageHandlers/MessageHandler.ts";
 import { RandomMessageHandler } from "./MessageHandlers/Random.ts";
 import { SeaOfThievesMessageHandler } from "./MessageHandlers/SeaOfThieves.ts";
 import { TLAMessageHandler } from "./MessageHandlers/TLA.ts";
+import { MikeMessageHandler } from "./MessageHandlers/Mike.ts";
 
 class HawgBot {
   client: Client;
@@ -14,14 +15,15 @@ class HawgBot {
       new DiabloMessageHandler(),
       new RandomMessageHandler(),
       new SeaOfThievesMessageHandler(),
-      new TLAMessageHandler()
+      new TLAMessageHandler(),
+      new MikeMessageHandler(),
     ];
   }
 
   public on_message(message: Message) {
     for (let i = 0; i < this.message_handlers.length; i++) {
       if (this.message_handlers[i].should_handle(message, this.client)) {
-        console.log(`Responding to message #${message.id}`)
+        console.log(`Responding to message #${message.id}`);
         return this.message_handlers[i].handle(message, this.client);
       }
     }
