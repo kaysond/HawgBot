@@ -9,7 +9,7 @@ export class DiabloMessageHandler extends BaseMessageHandler {
   ];
 
   protected content_options = [
-    "Mike what level are you in Diablo? I don't really care I just wanna know",
+    "Does anyone know what level Mike is in Diablo? I don't really care I just wanna know",
     "WHAT LEVEL IS MIKE IN DIABLO??!?",
   ];
 }

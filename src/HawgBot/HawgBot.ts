@@ -5,6 +5,8 @@ import { RandomMessageHandler } from "./MessageHandlers/Random.ts";
 import { SeaOfThievesMessageHandler } from "./MessageHandlers/SeaOfThieves.ts";
 import { TLAMessageHandler } from "./MessageHandlers/TLA.ts";
 import { MikeMessageHandler } from "./MessageHandlers/Mike.ts";
+import { JeremyMessageHandler } from "./MessageHandlers/Jeremy.ts";
+import { AdamMessageHandler } from "./MessageHandlers/Adam.ts";
 
 class HawgBot {
   client: Client;
@@ -17,6 +19,8 @@ class HawgBot {
       new SeaOfThievesMessageHandler(),
       new TLAMessageHandler(),
       new MikeMessageHandler(),
+      new JeremyMessageHandler(),
+      new AdamMessageHandler(),
     ];
   }
 
