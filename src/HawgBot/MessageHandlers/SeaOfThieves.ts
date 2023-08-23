@@ -42,17 +42,24 @@ export class SeaOfThievesMessageHandler extends BaseMessageHandler {
     "greensleeves",
     "reprieves",
   ];
-  public handle(message: Message, _: Client) {
-    const sea =
-      this.sea_rhymes[Math.floor(Math.random() * this.sea_rhymes.length)];
-    const thieves = this
-      .thieves_rhymes[
-        Math.floor(Math.random() * this.thieves_rhymes.length)
-      ];
-    const content = `Wait but have you heard of the game ${sea} of ${thieves}`;
-    return message.channel.send({
-      "content": content,
-      "reply": { "messageReference": message },
-    });
+
+  private contents = [
+    "Wait but have you heard of the game",
+    "You mean",
+    "What about",
+  ];
+
+  public constructor() {
+    super();
+    this.content_options = [this.contents, this.sea_rhymes, this.thieves_rhymes]
+      .reduce(
+        (product, array) =>
+          product.flatMap((combination) =>
+            array.map((item) => [...combination, item])
+          ),
+        [[]] as string[][],
+      ).map((combination) =>
+        `${combination[0]} ${combination[1]} of ${combination[2]}?`
+      );
   }
 }
