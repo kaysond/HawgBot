@@ -5,7 +5,7 @@ import { HawgIDs } from "../HawgIDs.ts";
 export class JeremyMessageHandler extends BaseMessageHandler {
   protected conditions = [
     BaseMessageHandler.not_sent_by_me,
-    (_: Message, __: Client) => Math.random() < 0.5,
+    (_: Message, __: Client) => Math.random() < 0.05,
     (message: Message, _: Client) => message.author.id === HawgIDs["jeremy"],
   ];
 

@@ -7,6 +7,11 @@ import { TLAMessageHandler } from "./MessageHandlers/TLA.ts";
 import { MikeMessageHandler } from "./MessageHandlers/Mike.ts";
 import { JeremyMessageHandler } from "./MessageHandlers/Jeremy.ts";
 import { AdamMessageHandler } from "./MessageHandlers/Adam.ts";
+import { DerekMessageHandler } from "./MessageHandlers/Derek.ts";
+import { JoeyMessageHandler } from "./MessageHandlers/Joey.ts";
+import { JustinMessageHandler } from "./MessageHandlers/Justin.ts";
+import { ZachMessageHandler } from "./MessageHandlers/Zach.ts";
+import { KeithMessageHandler } from "./MessageHandlers/Keith.ts";
 
 class HawgBot {
   client: Client;
@@ -21,6 +26,11 @@ class HawgBot {
       new MikeMessageHandler(),
       new JeremyMessageHandler(),
       new AdamMessageHandler(),
+      new DerekMessageHandler(),
+      new JoeyMessageHandler(),
+      new JustinMessageHandler(),
+      new ZachMessageHandler(),
+      new KeithMessageHandler(),
     ];
   }
 
