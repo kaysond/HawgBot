@@ -9,7 +9,12 @@ export interface IMessageHandler {
 
 export class BaseMessageHandler implements IMessageHandler {
   protected conditions!: MessageCondition[];
-  protected content_options: string[] | undefined;
+  protected content_options = [""];
+  protected content_options_used: boolean[];
+
+  public constructor() {
+    this.content_options_used = this.content_options.map((_) => false);
+  }
 
   public static not_sent_by_me(message: Message, client: Client) {
     return client.user?.id !== null && client.user?.id !== message.author.id;
@@ -24,12 +29,30 @@ export class BaseMessageHandler implements IMessageHandler {
     return true;
   }
 
+  protected all_content_options_used() {
+    return this.content_options_used.reduce(
+      (prev, current) => prev && current,
+      true,
+    );
+  }
+
+  protected get_random_unused_content() {
+    if (this.all_content_options_used()) {
+      this.content_options_used = this.content_options.map((_) => false);
+    }
+
+    let index: number;
+    do {
+      index = Math.random() * this.content_options.length >> 0;
+    } while (this.content_options_used[index]);
+
+    this.content_options_used[index] = true;
+    return this.content_options[index];
+  }
+
   public handle(message: Message, _: Client) {
-    const content = this.content_options === undefined
-      ? ""
-      : this.content_options[Math.random() * this.content_options.length >> 0];
     return message.channel.send({
-      "content": content,
+      "content": this.get_random_unused_content(),
       "reply": { "messageReference": message },
     });
   }

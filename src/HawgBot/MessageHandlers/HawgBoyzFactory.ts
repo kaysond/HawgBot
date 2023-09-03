@@ -14,6 +14,7 @@ const hawg_boy_response_options: HawgBoyResponses = {
     "I'll figure it out when it comes around",
     "TV Time.",
     "Let's get these shirts off!",
+    "Long hair don't care? More like no hair don't care.",
   ],
   "joey": [
     "You should just leave",
@@ -47,9 +48,10 @@ const hawg_boy_response_options: HawgBoyResponses = {
     "I named my dick Dow Jones. Maybe it will go up this quarter.",
     "If you lubricate the money, it goes in smoother.",
     "Let's get these shirts off!",
+    "No means yes. Yes means anal.",
   ],
   "aram": [
-    "Sorry, Aram doesn’t talk to baddies.",
+    "Sorry, Aram doesn't talk to baddies.",
     "Is it shoulder day at the gym? Cause you're getting carried.",
     "Stay together.",
     "They're not that good.",

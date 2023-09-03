@@ -4,7 +4,7 @@ import { BaseMessageHandler } from "./MessageHandler.ts";
 export class RandomMessageHandler extends BaseMessageHandler {
   protected conditions = [
     BaseMessageHandler.not_sent_by_me,
-    (_: Message, __: Client) => Math.random() < 0.05,
+    (_: Message, __: Client) => Math.random() < 0.02,
   ];
 
   protected content_options = [
